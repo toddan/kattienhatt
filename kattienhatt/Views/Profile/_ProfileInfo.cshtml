@@ -1,0 +1,25 @@
+﻿@model kattienhatt.ViewModel.ProfileViewModel
+
+<div class="col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>@User.Identity.Name</h3>
+        </div>
+        <div class="panel-body">
+            <img src="@Model.Profile.Image" width="100%" height="250" class="img-rounded" />
+            <dl>
+                <dt>@Html.DisplayNameFor(model => model.Profile.FirstName)</dt>
+                <dd>@Html.DisplayFor(model => model.Profile.FirstName)</dd>
+                <dt>@Html.DisplayNameFor(model => model.Profile.LastName)</dt>
+                <dd>@Html.DisplayFor(model => model.Profile.LastName)</dd>
+                <dt>@Html.DisplayNameFor(model => model.Profile.Age)</dt>
+                <dd>@Html.DisplayFor(model => model.Profile.Age)</dd>
+            </dl>
+            <p>
+                @Model.Profile.About
+            </p>
+            <hr />
+            @Html.ActionLink("Inställningar", "Edit", new { id = Model.Profile.ProfileId })
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+﻿@{
+    string youtubeurl = "//www.youtube.com/embed/";
+}
+
+<ul>
+    @foreach (var link in Model.Profile.Media)
+    {
+
+        if (link.MediaType == 1)
+        {
+            <li><img src="@link.MediaPath" /></li>
+        }
+        if(link.MediaType == 2)
+        {
+            <li><iframe width="450" height="350" src="@youtubeurl@Model.GetYouTubeVideoId(link.MediaPath)" frameborder="0" allowfullscreen></iframe></li>
+        }
+    }
+</ul>

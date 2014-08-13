@@ -1,0 +1,32 @@
+﻿@model kattienhatt.ViewModel.ProfileViewModel
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+@Html.Partial("_ProfileInfo")
+
+<div class="col-md-8">
+    <div class="panel panel-default">
+        <div class="panel-body">
+                @using (Html.BeginForm("AddMedia", "Profile", FormMethod.Post))
+                {
+                    @Html.HiddenFor(model => model.Media.ProfileId)
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Media.MediaPath)
+                        @Html.TextBoxFor(model => model.Media.MediaPath)
+                    </div>
+                    
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Media.MediaType)
+                        @Html.DropDownListFor(model => model.Media.MediaType, Model.MediaTypeSelectList)
+                    </div>
+
+                    <input type="submit" value="Lägg till" />
+                }
+            
+            <hr />
+            @Html.Partial("_MediaListPartial")
+        </div>
+    </div>
+</div>

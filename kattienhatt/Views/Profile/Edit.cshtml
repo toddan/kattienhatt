@@ -1,0 +1,15 @@
+﻿@model kattienhatt.Models.Profile
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(model => model.ProfileId)
+    @Html.Partial("_ProfileForm")
+    <div class="form-group">
+        <input type="submit" value="Spara" />
+    </div>
+}
+

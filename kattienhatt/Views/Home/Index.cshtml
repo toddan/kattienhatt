@@ -1,0 +1,17 @@
+﻿@model IEnumerable<kattienhatt.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @foreach (var user in Model)
+        {
+            <div class="col-md-3">
+                <h2>@Html.ActionLink(user.UserName, "Details", "Profile", new { id =user.Profile.ProfileId},null)</h2>
+                <a href="/Profile/Details/@user.Profile.ProfileId" ><img src="@user.Profile.Image" width="150" height="150" /></a>
+            </div>
+        }
+    </div>
+</div>
